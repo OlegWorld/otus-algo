@@ -2,11 +2,13 @@
 #define HW2_ARRAYS_LIST_H
 
 template <class T> class List;
+template <class T> class SortedList;
 
 template <class T>
 class Node {
 public:
     friend class List<T>;
+    friend class SortedList<T>;
 
     explicit Node(const T& element) : _element(element), _next(nullptr) { }
 
@@ -15,6 +17,10 @@ public:
     ~Node() {
         if (_next)
             delete _next;
+    }
+
+    bool operator<(const Node& rhs) {
+        return _element < rhs._element;
     }
 
 private:
