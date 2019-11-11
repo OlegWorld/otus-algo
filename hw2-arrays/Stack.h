@@ -1,14 +1,16 @@
-#ifndef HW2_ARRAYS_LIST_H
-#define HW2_ARRAYS_LIST_H
+#ifndef HW2_ARRAYS_STACK_H
+#define HW2_ARRAYS_STACK_H
 
-template <class T> class List;
+template <class T> class Stack;
 template <class T> class SortedList;
+template <class T> class Queue;
 
 template <class T>
 class Node {
 public:
-    friend class List<T>;
+    friend class Stack<T>;
     friend class SortedList<T>;
+    friend class Queue<T>;
 
     explicit Node(const T& element) : _element(element), _next(nullptr) { }
 
@@ -30,11 +32,11 @@ private:
 
 
 template <class T>
-class List {
+class Stack {
 public:
-    List() : _head(nullptr) { }
+    Stack() : _head(nullptr) { }
 
-    ~List() { delete _head; }
+    ~Stack() { delete _head; }
 
     size_t size() {
         size_t counter = 0;
@@ -137,4 +139,4 @@ private:
 };
 
 
-#endif //HW2_ARRAYS_LIST_H
+#endif //HW2_ARRAYS_STACK_H

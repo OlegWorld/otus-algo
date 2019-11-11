@@ -1,7 +1,7 @@
 #ifndef HW2_ARRAYS_SORTEDLIST_H
 #define HW2_ARRAYS_SORTEDLIST_H
 
-#include "List.h"
+#include "Stack.h"
 
 template <class T>
 class SortedList {
