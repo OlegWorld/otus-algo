@@ -27,6 +27,33 @@ public:
         return counter;
     }
 
+    bool empty() {
+        return _head == nullptr;
+    }
+
+    template <class U>
+    T* find(const U& key) {
+        auto node = _head;
+
+        while (node) {
+            if (node->_element == key) {
+                return &(node->_element);
+            }
+
+            if (node->_next) {
+                node = node->_next;
+            } else {
+                break;
+            }
+        }
+
+        return nullptr;
+    }
+
+    T& top() {
+        return _head->_element;
+    }
+
     void enqueue(const T& element) {
         auto* newNode = new Node<T>(element);
         if (!_head) {

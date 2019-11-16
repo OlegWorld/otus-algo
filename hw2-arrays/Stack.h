@@ -6,12 +6,7 @@ template <class T> class SortedList;
 template <class T> class Queue;
 
 template <class T>
-class Node {
-public:
-    friend class Stack<T>;
-    friend class SortedList<T>;
-    friend class Queue<T>;
-
+struct Node {
     explicit Node(const T& element) : _element(element), _next(nullptr) { }
 
     Node(const T& element, Node* n) : _element(element), _next(n) { }
@@ -25,7 +20,6 @@ public:
         return _element < rhs._element;
     }
 
-private:
     T _element;
     Node* _next;
 };
